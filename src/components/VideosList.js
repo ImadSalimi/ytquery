@@ -13,6 +13,7 @@ class VideosList extends Component {
 
 	render() {
 		const videos = this.props.videos.map((v, i) => {
+			// Extract some attributes from the JSON result
 			const { id: { videoId }, snippet: { title, thumbnails: { medium: thumbnail } } } = v
 			return (
 				<GridTile
@@ -27,6 +28,7 @@ class VideosList extends Component {
 			)
 		})
 
+		// The "Next" & "Previous" buttons only show if there's a corresponding token
 		const btnStyle = {margin: '0 5px 10px 0'}
 		const nextButton = (
 			this.props.nextPageToken ?

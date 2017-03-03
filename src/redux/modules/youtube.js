@@ -12,11 +12,12 @@ const initialState = {
 	isSearching: false,
 	searchQuery: '',
 	videos: [],
-	pageToken: '',
+	pageToken: '', // Current page token
 	nextPageToken: '',
 	prevPageToken: '',
 	error: null
 }
+
 
 export default function reducer(state = initialState, action = {}) {
 	switch (action.type) {
@@ -50,6 +51,12 @@ export default function reducer(state = initialState, action = {}) {
 	}
 }
 
+/**
+ * Calls the YouTube API's search method
+ * @param  {string} options.q         The search query
+ * @param  {string} options.pageToken The page token associated to the search results
+ * @return {object}                   The dispatched action
+ */
 export function search({ q, pageToken }) {
 	return {
 		types: [SEARCH, SEARCH_SUCCESS, SEARCH_FAIL],
@@ -67,6 +74,11 @@ export function search({ q, pageToken }) {
 	}
 }
 
+/**
+ * Loads the state from local
+ * @param  {object} state        An object representing the state
+ * @return {object}              The dispatched action
+ */
 export function loadState(state) {
 	return {
 		type: LOAD,

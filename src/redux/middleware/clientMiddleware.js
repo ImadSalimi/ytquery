@@ -1,3 +1,12 @@
+/**
+ * This middleware allows us to have actions that carry a promise and 3 types
+ * action = {
+ *   types: [REQUEST, SUCCESS, FAILURE]
+ *   promise: (client) => {}
+ * }
+ * 
+ * @param  {object} client A client that allows to make HTTP requests and uses promises
+ */
 export default function clientMiddleware(client) {
   return ({dispatch, getState}) => {
     return next => action => {

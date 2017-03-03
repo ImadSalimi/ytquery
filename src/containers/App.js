@@ -17,4 +17,5 @@ class App extends Component {
 	}
 };
 
+// Connects our container to the store
 export default connect()(App);

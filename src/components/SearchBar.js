@@ -30,6 +30,7 @@ class SearchBar extends Component {
 					hintText={'Search'}
 					value={this.state.q}
 					onChange={this.onQueryChange.bind(this)}
+					underlineFocusStyle={{borderColor: '#cc181e'}}
 				/>
 				<RaisedButton
 					type="submit"
