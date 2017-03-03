@@ -53,7 +53,7 @@ class VideosList extends Component {
 			<div>
 				{prevButton}
 				{nextButton}
-				{!videos.length && !this.props.isSearching ?
+				{this.props.searchQuery && !videos.length && !this.props.isSearching ?
 					<h1>No results found for "{this.props.searchQuery}"</h1> :
 					<GridList cols={3}>
 						{videos}
